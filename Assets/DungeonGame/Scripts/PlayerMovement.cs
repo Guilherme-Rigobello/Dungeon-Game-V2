@@ -15,12 +15,20 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.position = new Vector3(0, 0, 0);
+        }
+    }
 
     private void FixedUpdate()
     {
-              
 
-
+        moveH = Input.GetAxis("Horizontal");
+        moveV = Input.GetAxis("Vertical");
+            
         // Responsável por ativar as animações
         animator.SetFloat("Horizontal", moveH);
         animator.SetFloat("Vertical", moveV);
